@@ -25,6 +25,11 @@
     <!--  Home Layout  -->
     <string name="home_message">Welcome to the Homepage! \n This application was developed by Jenny Shaw! \n \n I invite first-time visitors to explore and add there name to the visitors log before departing!!</string>
 
+    <!--  Edit text fields  -->
+    <string name="edit_text_firstname">Enter First Name</string>
+    <string name="edit_text_lastName">Enter Last Name</string>
+
+
 
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
