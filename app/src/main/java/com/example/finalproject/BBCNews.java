@@ -17,4 +17,9 @@ public class BBCNews extends BaseActivity {
         TextView textView = findViewById(R.id.whatup);
 
     }
+
+
+
 }
+
+

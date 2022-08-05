@@ -36,7 +36,7 @@
         android:layout_marginStart="13dp"
         android:layout_marginTop="23dp"
         android:layout_toEndOf="@id/edittext_line_1"
-        android:text="insert"
+        android:text="@string/button_insert"
         android:paddingRight="5dp"/>
 
     <Button
@@ -45,6 +45,6 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@id/button_insert"
         android:layout_toEndOf="@+id/button_insert"
-        android:text="save" />
+        android:text="@string/button_save" />
 
 </RelativeLayout>

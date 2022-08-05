@@ -93,14 +93,31 @@ public class BaseActivity extends AppCompatActivity {
         {
             //what to do when the menu item is selected:
             case R.id.tool_home:
-                message = "You clicked item 1";
+                Intent homeIntent = new Intent(getApplicationContext(), Home.class);
+                startActivity(homeIntent);
+                drawerLayout.closeDrawers();
                 break;
+
             case R.id.tool_bbcNews:
-                message = "You clicked item 2";
+                Intent bbcIntent = new Intent(getApplicationContext(), BBCNews.class);
+                startActivity(bbcIntent);
+                drawerLayout.closeDrawers();
+                break;
+
+            case R.id.tool_favorites:
+                Intent favIntent = new Intent(getApplicationContext(), Favorites.class);
+                startActivity(favIntent);
+                drawerLayout.closeDrawers();
+                break;
+
+            case R.id.tool_visitorLog:
+                Intent visitorIntent = new Intent(getApplicationContext(), VisitorsLog.class);
+                startActivity(visitorIntent);
+                drawerLayout.closeDrawers();
                 break;
 
         }
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+
         return true;
     }
 
