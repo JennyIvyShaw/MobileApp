@@ -1,8 +1,11 @@
 package com.example.finalproject;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +13,7 @@ import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 
@@ -49,16 +53,37 @@ public class Favorites extends BaseActivity {
     {
         NewsList selectedItem = newsList.get(position);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(getString(R.string.delete))
+        builder.setTitle(getString(R.string.selection))
                 .setMessage(getString(R.string.selected) + position)
-                .setPositiveButton(getString(R.string.yes), (click, b)->{
-                    deleteItem(selectedItem);
-                    newsList.remove(position);
-                    myAdapter.notifyDataSetChanged();
+                .setPositiveButton(getString(R.string.delete), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        deleteItem(selectedItem);
+                        newsList.remove(position);
+                        myAdapter.notifyDataSetChanged();
+                    }
                 })
-                .setNegativeButton(getString(R.string.no), null)
-                .create().show();
+                .setNeutralButton(getString(R.string.open_link), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String link = newsList.get(position).getUrl();
+                        Uri uri = Uri.parse(link);
+                        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                        startActivity(intent);
+
+
+
+                    }
+                })
+                        .setNegativeButton(getString(R.string.news_alert_cancel), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        })
+                        .show();
     }
+
 
 
     private void deleteItem(NewsList selectedItem) {

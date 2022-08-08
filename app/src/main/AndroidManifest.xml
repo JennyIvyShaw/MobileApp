@@ -4,6 +4,7 @@
     package="com.example.finalproject" >
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -38,6 +39,9 @@
         <activity
             android:name=".VisitorsLog"
             android:label="@string/vistitorsLog_name"/>
+        <activity
+            android:name=".BBCNewsItem"
+            android:label="@string/bbc_news_item_name"/>
 
     </application>
 

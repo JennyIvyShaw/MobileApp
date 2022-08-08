@@ -11,8 +11,11 @@ import android.widget.Toast;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
+import org.w3c.dom.Text;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -22,6 +25,7 @@ public class VisitorsLog extends BaseActivity {
     private RecyclerView mRecyclerView;
     private VisitorAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    View view;
 
 
     @Override
@@ -85,6 +89,11 @@ public class VisitorsLog extends BaseActivity {
                 EditText line1 = findViewById(R.id.edittext_line_1);
                 EditText line2 = findViewById(R.id.edittext_line_2);
                 insertItem(line1.getText().toString(), line2.getText().toString());
+
+                view = findViewById(R.id.menu_visitorsLog);
+                Snackbar snackbar = Snackbar.make(view, getString(R.string.saving_name), Snackbar.LENGTH_LONG);
+
+                snackbar.show();
             }
         });
     }

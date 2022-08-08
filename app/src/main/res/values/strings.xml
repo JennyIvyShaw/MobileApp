@@ -6,6 +6,7 @@
     <string name="favorites_name">Favorites</string>
     <string name="baseActivity_name">BBC News</string>
     <string name="vistitorsLog_name">Visitors Log</string>
+    <string name="bbc_news_item_name">Article </string>
 
     <!--  Drawer Header  -->
     <string name="nav_header_title">Final Project</string>
@@ -37,12 +38,26 @@
     <string name="fav_list_tile">Favorite title</string>
     <string name="fav_list_url">Favorite Url</string>
 
-    <!--  Favorites Alert Box  -->
+    <!--  Alert Box  -->
+    <string name="delete">Delete</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
-    <string name="delete">Do you want to delete this?</string>
+    <string name="selection">What would you like to do?</string>
     <string name="selected">Selected row is: </string>
+    <string name="open_link">Open Article</string>
+    <string name="news_alert_databasesave">Save to Database</string>
+    <string name="news_alert_cancel">Cancel</string>
 
+
+    <!--  Snackbar Messages  -->
+    <string name="saving_name">Please save your name only once</string>
+    <string name="article_saved">Article Saved</string>
+
+    <!--  BBC News Layout etc...  -->
+    <string name="news_title">News Title</string>
+    <string name="news_description">News Description</string>
+    <string name="news_date">News Date</string>
+    <string name="news_url">News URL</string>
 
 
     <string name="nav_header_desc">Navigation header</string>

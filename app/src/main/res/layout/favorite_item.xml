@@ -18,7 +18,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/fav_list_url"
-        android:textSize="15dp"/>
+        android:textSize="15dp"
+        android:paddingBottom="15dp"/>
 
 
 </LinearLayout>
