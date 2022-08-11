@@ -27,6 +27,11 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 
+/**
+ * This class calls a class extending asyncTask and populates a listView
+ *
+ * @auther jennyShaw
+ */
 public class BBCNews extends BaseActivity {
     ListView newsListview;
     ArrayList<String> titles;
@@ -43,6 +48,7 @@ public class BBCNews extends BaseActivity {
 
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame); //Remember this is the FrameLayout area within your activity_main.xml
         getLayoutInflater().inflate(R.layout.bbc_news_layout, contentFrameLayout);
+
 
         newsListview = findViewById(R.id.news_listView);
         titles = new ArrayList<String>();
@@ -69,9 +75,16 @@ public class BBCNews extends BaseActivity {
 
             }
         });
+
         new ProcessInBackground().execute();
     }
 
+    /**
+     * Method returns established online url input stream connection
+     *
+     * @param url Online url connection
+     * @return
+     */
     public InputStream getInputStream(URL url){
         try{
             return url.openConnection().getInputStream();
@@ -80,6 +93,9 @@ public class BBCNews extends BaseActivity {
         }
     }
 
+    /**
+     * This class uses aysncTask to load .xml content from the BBC News online page
+     */
     public class ProcessInBackground extends AsyncTask<Integer, Void, String>{
         ProgressDialog progressDialog = new ProgressDialog(BBCNews.this);
         Exception exception;

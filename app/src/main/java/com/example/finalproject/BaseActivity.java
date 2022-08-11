@@ -1,5 +1,6 @@
 package com.example.finalproject;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,6 +9,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -17,6 +19,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
+/**This class acts a super layout, all the activities are loaded into a frame in activity_main.xml
+ * Navigation and toolbar navigate the user to other activity*/
 public class BaseActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
@@ -36,11 +40,13 @@ public class BaseActivity extends AppCompatActivity {
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
 
 
-
-
-
-
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            /**
+             * This method allows the user to click a navigation menu option and load the activity accordingly
+             *
+             * @param item Item in the navigation drawer
+             * @return
+             */
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
                 switch (item.getItemId()) {
@@ -86,6 +92,12 @@ public class BaseActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * This method allows the user to click a toolbar menu option and load the activity accordingly
+     *
+     * @param item Option in the toolbar
+     * @return
+     */
     public boolean onOptionsItemSelected(MenuItem item) {
         String message = null;
         //Look at your menu XML file. Put a case for every id in that file:
@@ -98,22 +110,24 @@ public class BaseActivity extends AppCompatActivity {
                 drawerLayout.closeDrawers();
                 break;
 
-            case R.id.tool_bbcNews:
-                Intent bbcIntent = new Intent(getApplicationContext(), BBCNews.class);
-                startActivity(bbcIntent);
-                drawerLayout.closeDrawers();
-                break;
-
             case R.id.tool_favorites:
                 Intent favIntent = new Intent(getApplicationContext(), Favorites.class);
                 startActivity(favIntent);
                 drawerLayout.closeDrawers();
                 break;
 
-            case R.id.tool_visitorLog:
-                Intent visitorIntent = new Intent(getApplicationContext(), VisitorsLog.class);
-                startActivity(visitorIntent);
-                drawerLayout.closeDrawers();
+            case R.id.tool_Help:
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle(getString(R.string.info))
+                        .setNegativeButton(getString(R.string.news_alert_cancel), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        })
+                        .show();
+
+
                 break;
 
         }

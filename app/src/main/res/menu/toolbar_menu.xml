@@ -8,23 +8,19 @@
         android:orderInCategory="1"
         app:showAsAction="always"/>
 
-    <item android:id="@+id/tool_bbcNews"
-        android:icon="@drawable/ic_baseline_cloud_queue_24"
+
+
+    <item android:id="@+id/tool_favorites"
+        android:icon="@drawable/ic_baseline_favorite_border_24"
         android:orderInCategory="2"
         app:showAsAction="always"
         android:title="Item 2"/>
 
-    <item android:id="@+id/tool_favorites"
-        android:icon="@drawable/ic_baseline_favorite_border_24"
+    <item android:id="@+id/tool_Help"
+        android:icon="@drawable/ic_baseline_help_24"
         android:orderInCategory="3"
         app:showAsAction="always"
         android:title="Item 3"/>
-
-    <item android:id="@+id/tool_visitorLog"
-        android:icon="@drawable/ic_baseline_playlist_add_24"
-        android:orderInCategory="4"
-        app:showAsAction="always"
-        android:title="Item 4"/>
 
 
 

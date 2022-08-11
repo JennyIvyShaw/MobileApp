@@ -51,17 +51,22 @@
 
     <!--  Snackbar Messages  -->
     <string name="saving_name">Please save your name only once</string>
+    <string name="saved_name">Your name has been saved</string>
     <string name="article_saved">Article Saved</string>
 
     <!--  BBC News Layout etc...  -->
-    <string name="news_title">News Title</string>
-    <string name="news_description">News Description</string>
-    <string name="news_date">News Date</string>
-    <string name="news_url">News URL</string>
+    <string name="news_title">News Title: \n</string>
+    <string name="news_description">News Description: \n</string>
+    <string name="news_date">News Date: \n</string>
+    <string name="news_url">News URL: \n</string>
+    <string name="article_title">Article title: \n</string>
+    <string name="article_url">Article url: \n</string>
 
 
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="save_article">Do you want to save this article?</string>
+    <string name="info">Swipe right to access the navigation drawer.</string>
 
 
 

@@ -52,6 +52,7 @@
 
     <!--  Snackbar Messages  -->
     <string name="saving_name">Veuillez enregistrer votre nom une seule fois</string>
+    <string name="saved_name">Votre nom a été enregistré</string>
     <string name="article_saved">Article enregistré</string>
 
     <!--  BBC News Layout etc...  -->
@@ -60,7 +61,15 @@
     <string name="news_date">Date de l\'actualité</string>
     <string name="news_url">URL des actualités</string>
 
+    <string name="article_title">Le titre de l\'article: \n</string>
+    <string name="article_url">URL de l\'article: \n</string>
+
+
 
     <string name="nav_header_desc">En-tête de navigation</string>
     <string name="action_settings">Réglages</string>
+
+    <string name="save_article">Voulez-vous enregistrer cet article?</string>
+    <string name="info">Balayez vers la droite pour accéder au tiroir de navigation.</string>
+
 </resources>

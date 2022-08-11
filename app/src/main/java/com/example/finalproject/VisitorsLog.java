@@ -15,11 +15,10 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import org.w3c.dom.Text;
-
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
+/**This class loads and saves data into saved preferences */
 public class VisitorsLog extends BaseActivity {
     ArrayList<VisitorItem> mVisitorList;
     private RecyclerView mRecyclerView;
@@ -54,15 +53,15 @@ public class VisitorsLog extends BaseActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         Gson gson = new Gson();
         String json = gson.toJson(mVisitorList);
-        editor.putString("visitor list", json);
+        editor.putString("visitors list", json);
         editor.apply();
-        Toast.makeText(this, "Your name has been saved!", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, getResources().getString(R.string.saved_name), Toast.LENGTH_LONG).show();
     }
 
     private void loadData() {
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
         Gson gson = new Gson();
-        String json = sharedPreferences.getString("visitor list", null);
+        String json = sharedPreferences.getString("visitors list", null);
         Type type = new TypeToken<ArrayList<VisitorItem>>() {}.getType();
         mVisitorList = gson.fromJson(json, type);
 
@@ -86,8 +85,8 @@ public class VisitorsLog extends BaseActivity {
         buttonInsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText line1 = findViewById(R.id.edittext_line_1);
-                EditText line2 = findViewById(R.id.edittext_line_2);
+                EditText line1 = findViewById(R.id.edittext_firstName);
+                EditText line2 = findViewById(R.id.edittext_lastName);
                 insertItem(line1.getText().toString(), line2.getText().toString());
 
                 view = findViewById(R.id.menu_visitorsLog);
@@ -98,8 +97,8 @@ public class VisitorsLog extends BaseActivity {
         });
     }
 
-    private void insertItem(String line1, String line2) {
-        mVisitorList.add(new VisitorItem(line1, line2));
+    private void insertItem(String firstName, String lastName) {
+        mVisitorList.add(new VisitorItem(firstName, lastName));
         mAdapter.notifyItemInserted(mVisitorList.size());
     }
 }

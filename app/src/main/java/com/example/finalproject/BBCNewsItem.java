@@ -19,7 +19,11 @@ import androidx.appcompat.app.AlertDialog;
 
 import java.util.ArrayList;
 
+/**
+ * This class collects content parsed by the previous activity and displays it in TextViews
+ */
 public class BBCNewsItem extends BaseActivity {
+
     TextView titleView, descriptionView, pubDateView, urlView;
     AlertDialog.Builder builder;
     ArrayList<NewsList> newsList;
@@ -50,17 +54,17 @@ public class BBCNewsItem extends BaseActivity {
 
 
 
-        titleView.setText(title);
-        descriptionView.setText(description);
-        pubDateView.setText(pubDate);
-        urlView.setText(link);
+        titleView.setText(getResources().getString(R.string.news_title) + title);
+        descriptionView.setText(getResources().getString(R.string.news_description) + description);
+        pubDateView.setText(getResources().getString(R.string.news_date)+ pubDate);
+        urlView.setText(getResources().getString(R.string.news_url) +link);
 
         builder =new AlertDialog.Builder(BBCNewsItem.this);
 
         titleView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                builder.setTitle("Would you like to save this Article?")
+                builder.setTitle(getString(R.string.save_article))
                         .setCancelable(true)
                         .setPositiveButton(getString(R.string.yes), new DialogInterface.OnClickListener() {
                             @Override

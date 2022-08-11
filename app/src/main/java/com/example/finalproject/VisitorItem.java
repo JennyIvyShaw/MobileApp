@@ -1,19 +1,39 @@
 package com.example.finalproject;
-
+/**
+ *This class create amd constructs basic information about a first time visitor
+ *
+ * @auther jennyShaw
+ */
 public class VisitorItem {
-    private String mLine1;
-    private String mLine2;
+    private String firstName;
+    private String lastName;
 
-    public VisitorItem(String line1, String line2) {
-        this.mLine1 = line1;
-        this.mLine2 = line2;
+    /**
+     * This Constructs and initializes the first and last name
+     *
+     * @param firstName First name of visitor
+     * @param lastName Last name of visitor
+     */
+    public VisitorItem(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
-    public String getLine1() {
-        return mLine1;
+    /**
+     * Method returns the firstName
+     *
+     * @return First name
+     */
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getLine2() {
-        return mLine2;
+    /**
+     * Method returns last name
+     *
+     * @return Last Name
+     */
+    public String getLastName() {
+        return lastName;
     }
 }

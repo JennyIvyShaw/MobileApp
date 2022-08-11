@@ -18,11 +18,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 
 import java.util.ArrayList;
-
+/**This class loads content from the database and displays the content in a textView so the user can manipulate */
 public class Favorites extends BaseActivity {
     //Variables associated to objects on the layout (references)
     ListView favoriteListView;
-
     ArrayList<NewsList> newsList = new ArrayList<>();
     MyOwnAdapter myAdapter;
     SQLiteDatabase db;
@@ -49,6 +48,11 @@ public class Favorites extends BaseActivity {
 
     }
 
+    /**
+     *This method allows the user to select an item in the list and displays an option menu
+     *
+     * @param position current position of the content in the database
+     */
     private void showItem(int position)
     {
         NewsList selectedItem = newsList.get(position);
@@ -85,14 +89,19 @@ public class Favorites extends BaseActivity {
     }
 
 
-
+    /**
+     * This method deletes content in the database based on the position
+     *
+     * @param selectedItem Specific row of content
+     */
     private void deleteItem(NewsList selectedItem) {
         db.delete(DBHelper.TABLE_NAME, DBHelper.COL_ID + "= ?", new String[] {Long.toString(selectedItem.getId())});
     }
 
 
-
-
+    /**
+     * This method loads content stored in the database
+     */
     private void loadDataFromDatabase()
     {
         //get a database connection.
@@ -148,10 +157,10 @@ public class Favorites extends BaseActivity {
 
             //Get the text view for the Rows (aka title and url)
             TextView titleName = newView.findViewById(R.id.favorite_title_textView);
-            titleName.setText(  thisRow.getTitle());
+            titleName.setText(getResources().getString(R.string.article_title) + thisRow.getTitle());
 
             TextView urlName = newView.findViewById(R.id.favorite_url_textView);
-            urlName.setText( thisRow.getUrl());
+            urlName.setText( getResources().getString(R.string.article_url) + thisRow.getUrl());
 
             return newView;
         }
